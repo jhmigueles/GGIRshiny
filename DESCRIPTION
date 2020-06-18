@@ -1,0 +1,15 @@
+Package: GGIRshiny
+Title: A GGIR shiny app
+Version: 0.0.0.9000
+Authors@R: person('Jairo H.', 'Migueles', email = 'jairohm@ugr.es', role = c('cre', 'aut'))
+Description: A shiny app to use the GGIR R package. This app can be used to process and visualize accelerometer data.
+License: MIT + file LICENSE
+Imports: 
+    config,
+    golem,
+    shiny
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+URL: https://github.com/jhmigueles/GGIRshiny
+BugReports: https://github.com/jhmigueles/GGIRshiny/issues
