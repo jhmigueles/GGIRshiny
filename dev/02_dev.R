@@ -16,16 +16,25 @@
 ## Dependencies ----
 ## Add one line by package you want to add as dependency
 usethis::use_package( "thinkr" )
+usethis::use_package( "future" )
+usethis::use_package( "promises" )
+usethis::use_package( "GGIR" )
+usethis::use_package( "plotly" )
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module( name = "name_of_module1" ) # Name of the module
-golem::add_module( name = "name_of_module2" ) # Name of the module
+golem::add_module( name = "about" ) # Name of the module
+golem::add_module( name = "processing1" ) # Name of the module
+golem::add_module( name = "distribution" ) # Name of the module
+golem::add_module( name = "sleep" ) # Name of the module
+golem::add_module( name = "activity" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*
-golem::add_fct( "helpers" ) 
-golem::add_utils( "helpers" )
+golem::add_fct( "disable_inputs" ) 
+golem::add_utils( "LoadToEnvironment" )
+golem::add_fct( "choose.metrics" ) 
+golem::add_fct( "get_label.y" ) 
 
 ## External resources
 ## Creates .js and .css files at inst/app/www

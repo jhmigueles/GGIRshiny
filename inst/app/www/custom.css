@@ -1,0 +1,40 @@
+/*Background color*/
+body {background-color: #FFFFFF;}
+
+
+
+/*Navigation bar - last element float right*/
+.navbar-nav{
+            float: none;
+            }
+.navbar-nav > li:nth-child(1) {
+                           float: right;
+                           }
+
+/*Text characteristics*/
+.red{
+ color:#E85A4F;
+}
+.redcenter{
+ color:#E85A4F;
+ text-align:center;
+ font-weight:bold;
+}
+h1{
+  color:#E85A4F;
+  text-align:center;
+  font-weight:bolder;
+}
+h4{
+  text-align:center;
+  font-weight:bold;
+}
+.unorderedList{
+  text-indent:30px;
+}
+.right{
+  text-align:right;
+}
+
+
+

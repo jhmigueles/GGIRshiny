@@ -37,6 +37,9 @@ usethis::use_news_md( open = FALSE )
 ## Use git ----
 usethis::use_git()
 
+## If you have data in your package ----
+usethis::use_data_raw(name = "sample_data", open = FALSE)
+
 ## Init Testing Infrastructure ----
 ## Create a template for tests
 golem::use_recommended_tests()
