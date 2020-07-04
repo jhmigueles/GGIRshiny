@@ -29,10 +29,10 @@ golem::set_golem_options()
 ## Create Common Files ----
 ## See ?usethis for more information
 usethis::use_mit_license( name = "Jairo H. Migueles" )  # You can set another license here
-usethis::use_readme_rmd( open = FALSE )
+usethis::use_readme_rmd( open = TRUE )
 usethis::use_code_of_conduct()
 usethis::use_lifecycle_badge( "Experimental" )
-usethis::use_news_md( open = FALSE )
+usethis::use_news_md( open = TRUE )
 
 ## Use git ----
 usethis::use_git()
