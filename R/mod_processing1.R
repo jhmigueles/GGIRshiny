@@ -234,13 +234,11 @@ mod_processing1_server <- function(input, output, session, parent_session){
     
     # Plot --------------------------------------------------------------------
     fnames = reactive({
-      if(is.null(outputdir)) return()
       dir(file.path(metadatadir(),"meta", "basic"))
     })
     
     
     output$person2plot = renderUI({
-      if(is.null(fnames())) return()
       div(
         pickerInput(inputId = ns("person"),
                     label = "Select the file to plot",
@@ -255,7 +253,6 @@ mod_processing1_server <- function(input, output, session, parent_session){
     makeReactiveBinding("data")
     makeReactiveBinding("M")
     output$acc2plot = renderUI({
-      if(length(fnames()) == 0) return()
       file2load = input$person
       file2load = file.path(metadatadir(),"meta", "basic", file2load)
       env <- reactiveFileReader(intervalMillis = 1000, session = session,
@@ -272,7 +269,6 @@ mod_processing1_server <- function(input, output, session, parent_session){
     
     # Plot
     output$plot = renderPlotly({
-      if(length(fnames()) == 0) return()
       data_plot = data.frame(time = GGIR::iso8601chartime2POSIX(data$timestamp, tz = input$desiredtz),
                              acc = data[,input$acc])
       

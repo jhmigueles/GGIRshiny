@@ -172,9 +172,8 @@ mod_sleep_server <- function(input, output, session, ggir_args, ggir_args2, pare
       
       incProgress(0.5/length(ggir_args$datadir()), 
                   detail = "Processing files")
-      colid = which(colnames(log_tmp) == input$sleeplog_colid)
-      coln1 = which(colnames(log_tmp) == input$sleeplog_coln1)
-      # Run g.part2
+      
+      # Run g.part3 and g.part4
       GGIR::g.shell.GGIR(mode=3:4,         
                          #BASIC SETTINGS
                          datadir=ggir_args$datadir(),
@@ -206,7 +205,8 @@ mod_sleep_server <- function(input, output, session, ggir_args, ggir_args2, pare
     # Plot
     output$plot_angle = renderPlot({})
     output$plot_sleep = renderPlotly({
-      data = read.csv(file.path(ggir_args$metadatadir(), "results", "part4_nightsummary_sleep_cleaned.csv"))
+      data = read.csv(file.path(ggir_args$metadatadir(), "results", 
+                                "part4_nightsummary_sleep_cleaned.csv"))
       nums = data[which(data$filename == input$person), "SleepDurationInSpt"]
       plot_ly(
         x = data[which(data$filename == input$person), "weekday"],
