@@ -55,6 +55,9 @@ mod_activity_ui <- function(id){
             actionButton(inputId = ns("run4"), icon = icon("play"),
                          label = "Run",
                          width = "100%")
+          ),
+          col_6(
+            uiOutput(ns("filesummary"))
           )
         )
       ),
@@ -180,6 +183,12 @@ mod_activity_server <- function(input, output, session,ggir_args, ggir_args2){
       actionBttn(ns("recs"), label = "Reach physical activity recommendations?",
                  style = "jelly", color = "danger", size = "sm", block = TRUE)
     })
+    
+    # See file summary
+    output$filesummary = renderUI({
+      actionBttn(ns("filesummary"), label = "PDF report",
+                 style = "jelly", color = "danger", size = "sm", block = TRUE)
+    })
   })
   
   # Meet recommendations? ---------------------------------------------------
@@ -214,4 +223,14 @@ mod_activity_server <- function(input, output, session,ggir_args, ggir_args2){
       )
     }
   })
+  
+  
+  # Open PDF report ---------------------------------------------------------
+  observeEvent(input$recs,{
+    folder = file.path(ggir_args$metadatadir(), "results", "file summary reports")
+    file = reactive(dir(folder)[amatch(paste("Report", input$person, sep = "_"), dir(folder), maxDist = 6)])
+    filepath = reactive(file.path(folder, file()))
+    file.show(filepath())
+  })
+  
 }

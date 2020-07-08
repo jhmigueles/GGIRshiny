@@ -173,6 +173,9 @@ mod_sleep_server <- function(input, output, session, ggir_args, ggir_args2, pare
       incProgress(0.5/length(ggir_args$datadir()), 
                   detail = "Processing files")
       
+      colid = which(colnames(log_tmp) == input$sleeplog_colid)
+      coln1 = which(colnames(log_tmp) == input$sleeplog_coln1)
+      
       # Run g.part3 and g.part4
       GGIR::g.shell.GGIR(mode=3:4,         
                          #BASIC SETTINGS
